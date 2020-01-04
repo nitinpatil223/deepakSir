@@ -1,0 +1,45 @@
+<form class="form-signin" [formGroup]="loginForm" novalidate>
+    <div class="text-center logo">
+        <img src="./assets/imgs/logos/logo.png" alt="Logo">
+    </div>
+    <div class="row">
+       
+        <div class="col-12">
+            <div class="form-group has-float-label field-with-icon">
+               <i class="icon-mail"></i> 
+               <input class="form-control" type="text" id="loginEmailAddress" placeholder="Email Address" formControlName="email">
+                <label for="loginEmailAddress">Email Address</label>
+                <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
+                class="error-msg">
+                <div
+                    *ngIf="loginForm.controls['email'].errors.required">
+                    Email is required.
+                </div>
+                <div
+                    *ngIf="loginForm.controls['email'].errors.email || loginForm.controls['email'].errors.pattern">
+                    Email must be a valid email address.
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group  has-float-label field-with-icon">
+              <i class="icon-key"></i>  <input class="form-control" type="password" id="loginPassword" placeholder="Password" formControlName="password">
+                <label for="loginPassword">Password</label>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+                class="error-msg">
+                <div
+                    *ngIf="loginForm.controls['password'].errors.required">
+                    Password is required.
+                </div>
+                
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6"> <button class="btn btn-lg btn-primary" routerLink="/users">Login</button></div>
+        <div class="col-6 d-flex align-items-center justify-content-end"> <a href="javascript:void(0)" routerLink="/forgot-password" title="Forgot Password">Forgot password?</a></div>
+    </div>
+  </form>
+  
