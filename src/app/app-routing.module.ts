@@ -28,6 +28,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'master',
+    loadChildren: './modules/master/master.module#MasterModule',
+  },
+
+  {
     path: 'forgot-password',
     loadChildren: './modules/forgot-password/forgot-password.module#ForgotPasswordModule',
   },
