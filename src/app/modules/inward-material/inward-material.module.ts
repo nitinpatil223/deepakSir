@@ -3,21 +3,23 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MasterRoutingModule } from './master-routing.module';
-import { ClientComponent } from './client/client.component';
-import { AddClientComponent } from './add-client/add-client.component';
+
+import { InwardMaterialRoutingModule } from './inward-material-routing.module';
+import { InwardComponent } from './inward/inward.component';
 
 
 @NgModule({
-  declarations: [ClientComponent, AddClientComponent],
+  declarations: [
+    InwardComponent
+  ],
   imports: [
     CommonModule,
-    MasterRoutingModule,
-    CommonModule,
+    InwardMaterialRoutingModule,
     NgbModule,
     AngularMultiSelectModule,
     FormsModule,
     ReactiveFormsModule
+    
   ]
 })
-export class MasterModule { }
+export class InwardMaterialModule { }

@@ -28,8 +28,13 @@ const routes: Routes = [
   },
 
   {
-    path: 'master',
-    loadChildren: './modules/master/master.module#MasterModule',
+    path: 'inward-material',
+    loadChildren: './modules/inward-material/inward-material.module#InwardMaterialModule',
+  },
+
+  {
+    path: 'client-master',
+    loadChildren: './modules/client-master/client-master.module#ClientMasterModule',
   },
 
   {
