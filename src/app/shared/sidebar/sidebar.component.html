@@ -4,15 +4,77 @@
 <!---menu backdrop div start-->
 <div class="overlay"></div>
 <!---menu backdrop div end-->
-<nav class="side-nav expand-lg">
-    <div class="side-nav-inner">
-        <ul class="side-nav-menu">
-                <!-- <li class="nav-item dropdown">
-                        <a class="dropdown-toggle" routerLink="/proposal" routerLinkActive="active-link">
-                            <i class="icon-forms"></i>
-                            <span class="title">Master</span>
-                        </a>
-                    </li> -->
+
+<div class="side-nav-inner">
+  <ul class="side-nav-menu">
+    <li class="nav-item"  (click)="sidebarToggle()"  [ngClass]="{ 'active': sampleForm.isActive }">
+      <a class="nav-link" routerLink="/sample-form" routerLinkActive #sampleForm="routerLinkActive">
+        <i class="far fa-user"></i>
+        <span class="menu-title">Sample Form</span>
+      </a>
+    </li>
+    <li class="nav-item"  (click)="sidebarToggle()" [ngClass]="{ 'active': users.isActive }">
+      <a class="nav-link" routerLink="/users" routerLinkActive #users="routerLinkActive">
+        <i class="far fa-user"></i>
+        <span class="menu-title">Users</span>
+      </a>
+    </li>
+
+
+    <li class="nav-item" [ngClass]="{'active' : clientMaster.isActive || inwardMaster.isActive}">
+      <a class="nav-link" (click)="uiBasicCollapsed = !uiBasicCollapsed" [attr.aria-expanded]="uiBasicCollapsed"
+        aria-controls="ui-list">
+        <i class="far fa-user"></i>
+        <span class="menu-title">Master</span>
+        <i class="fa fa-arrow-circle-right menu-arrow" aria-hidden="true"></i>
+      </a>
+      <div class="collapse" id="ui-list" [ngbCollapse]="!uiBasicCollapsed" [ngClass]="{ 'show': isShown }">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item" [ngClass]="{'subActive' : clientMaster.isActive || inwardMaster.isActive}">
+            <a class="nav-link" (click)="uiBasicCollapsedr = !uiBasicCollapsedr"
+              [attr.aria-expanded]="uiBasicCollapsedr" aria-controls="ui-list">
+              <i class="far fa-circle"></i> <span class="menu-title"> Client Master</span>
+              <i class="fa fa-chevron-right menu-arrow" aria-hidden="true"></i>
+            </a>
+
+            <div class="collapse" id="ui-list" [ngbCollapse]="!uiBasicCollapsedr" [ngClass]="{ 'show': isShown }">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" (click)="deviceSidemenuCollapse()" routerLink="client-master"
+                    routerLinkActive="active" #clientMaster="routerLinkActive"><i class="fas fa-circle"></i> Client</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" (click)="deviceSidemenuCollapse()" routerLink="inward-material"
+                    routerLinkActive="active" #inwardMaster="routerLinkActive"><i class="fas fa-circle"></i> Inward
+                    Master</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item" (click)="deviceSidemenuCollapse()" (click)="sidebarToggle()">
+            <a class="nav-link">
+              <i class="far fa-circle"></i> <span class="menu-title"> Other Master</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item"  (click)="sidebarToggle()" [ngClass]="{ 'active': sampleList.isActive }">
+      <a class="nav-link" routerLink="/sample-list" routerLinkActive #sampleList="routerLinkActive">
+        <i class="far fa-user"></i>
+        <span class="menu-title">Sample List</span>
+      </a>
+    </li>
+    <!-- <li class="nav-item">
+                <a class="nav-link">
+                  <i class="fal fa-tachometer-fastest"></i>
+                  <span class="menu-title">Dashboard</span>
+                </a>
+              </li> -->
+  </ul>
+
+  <!-- <ul class="side-nav-menu">
+               
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" routerLink="/sample-form" routerLinkActive="active-link">
                     <i class="icon-forms"></i>
@@ -45,18 +107,13 @@
                     <span class="title">Inward Material</span>
                     </a>
             </li>
-            <!-- <li class="nav-item dropdown">
-                <a class="dropdown-toggle" routerLink="/login" routerLinkActive="active-link">
-                    <i class="icon-logout"></i>
-                    <span class="title">Logout</span>
-                </a>
-            </li> -->
-        </ul>
-        <div class="fold-menu-on-desktop">
-            <a class="sidenav-fold-toggler" href="javascript:void(0);">
-                <i class="icon-left"></i>
-            </a>
-        </div>
-    </div>
-</nav>
+            
+        </ul> -->
+  <div class="fold-menu-on-desktop">
+    <a class="sidenav-fold-toggler" href="javascript:void(0);">
+      <i class="icon-left"></i>
+    </a>
+  </div>
+</div>
+
 <!-- Side Nav END -->
